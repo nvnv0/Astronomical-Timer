@@ -1,6 +1,8 @@
-Enjoy the planet tracking syystem. Our age old time keeping format. 
+Enjoy the planet tracking system. Our age old time keeping format. 
 
-load 430.. epidemis from nasa, file is 25mb plus. 
+load 430.. epidermis from nasa, file is 25mb plus. 
+Site: https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/
+
 
 Code run:
 
