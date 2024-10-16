@@ -1,0 +1,5 @@
+streamlit
+skyfield
+pytz
+plotly
+swisseph
