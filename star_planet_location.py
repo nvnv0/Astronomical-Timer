@@ -34,7 +34,7 @@ st.title("Planetary Positions: Sidereal and Tropical")
 
 # Load ephemeris data
 try:
-    eph = load('de430_1850-2150.bsp')  # Use local de430.bsp for better precision
+    eph = load('de430_1850-2150.bsp')
 except OSError:
     st.warning("Unable to load de430_1850-2150.bsp. Falling back to de421.bsp.")
     eph = load('de421.bsp')
@@ -59,7 +59,7 @@ ts = load.timescale()
 # Functions to calculate Ayanamsa
 def calculate_lahiri_ayanamsa(t):
     swe.set_sid_mode(swe.SIDM_LAHIRI)
-    ayanamsa_value = swe.get_ayanamsa(t.tt)  # Use Terrestrial Time (tt) for accuracy
+    ayanamsa_value = swe.get_ayanamsa(t.tt)  # Using Terrestrial Time (tt) for accuracy
     return ayanamsa_value
 
 def calculate_kp_ayanamsa(t):
@@ -70,7 +70,7 @@ def calculate_kp_ayanamsa(t):
 # Function to determine Nakshatra for a given degree
 def get_nakshatra(degree):
     total_nakshatras = len(nakshatras)
-    nakshatra_length = 360 / total_nakshatras  # Each nakshatra spans 13.333... degrees
+    nakshatra_length = 360 / total_nakshatras  # Each nakshatra spans 360/27=13.333... degrees
     index = int(degree / nakshatra_length)
     index = index % total_nakshatras  # Ensure index is within range
     return nakshatras[index][1]  # Return the name of the nakshatra
@@ -273,7 +273,7 @@ def calculate_lunar_nodes(current_time, ayanamsa, coord_option):
     # Calculate Rahu (mean node) in tropical zodiac
     flags = swe.FLG_SWIEPH  # Use Swiss Ephemeris
     rahu_info = swe.calc_ut(jd, swe.MEAN_NODE, flags)
-    rahu_tropical = rahu_info[0][0] % 360  # Corrected indexing
+    rahu_tropical = rahu_info[0][0] % 360  # value fecthed from tuple 
 
     if coord_option == "Sidereal" or coord_option == "Both":
         # Adjust for ayanamsa
